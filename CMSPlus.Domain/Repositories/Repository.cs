@@ -51,4 +51,9 @@ public class Repository<T> : IRepository<T> where T: BaseEntity
         _context.Set<T>().Remove(entityToRemove);
         await _context.SaveChangesAsync();
     }
+
+    public async Task Save()
+    {
+        await _context.SaveChangesAsync();
+    }
 }

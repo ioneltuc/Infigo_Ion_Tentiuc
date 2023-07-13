@@ -14,4 +14,20 @@
     <div class="row">
         <p class="col-12 text-black-50 text-end">System name: @Model.SystemName</p>
     </div>
+
+    <div class="col-6 text-end">
+        <a class="btn btn-primary text-center" asp-controller="Comment" asp-action="Create" asp-route-topicId="@Model.Id">Add comment</a>
+    </div>
+
+    @foreach(var comment in Model.Comments)
+    {
+        <div>@comment.FullName</div>
+        <div>@comment.Body</div>
+        using (Html.BeginForm("Delete", "Comment", new { id = comment.Id }, FormMethod.Post))
+        {
+            <div class="col-6 text-start">
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </div>
+        }
+    }
 </div>

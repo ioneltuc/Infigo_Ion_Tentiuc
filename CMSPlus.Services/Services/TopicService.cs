@@ -42,4 +42,9 @@ public class TopicService:ITopicService
     {
         await _repository.Delete(id);
     }
+
+    public async Task AddNewComment(CommentEntity comment, int topicId)
+    {
+        await _repository.AddNewComment(comment, topicId);
+    }
 }
