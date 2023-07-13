@@ -1,4 +1,4 @@
-using CMSPlus.Domain.Entities;
+using CMSPlus.Domain.Models.CommentModels;
 
 namespace CMSPlus.Domain.Models.TopicModels;
 
@@ -13,7 +13,7 @@ public class TopicDetailsModel : BaseTopicModel
     public string SystemName { get; set; }
     public string Title { get; set; }
     public string Body { get; set; }
-    public ICollection<CommentEntity> Comments { get; set; }
+    public ICollection<CommentModel> Comments { get; set; }
     public DateTime? CreatedOnUtc { get; set; }
     public DateTime? UpdatedOnUtc { get; set; }
 }

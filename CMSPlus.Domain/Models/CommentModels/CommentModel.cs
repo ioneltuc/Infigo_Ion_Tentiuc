@@ -6,7 +6,7 @@ namespace CMSPlus.Domain.Models.CommentModels
     {
         public CommentModel()
         {
-            UpdatedOnUtc = CreatedOnUtc = DateTime.UtcNow;
+            CreatedOnUtc = DateTime.UtcNow;
         }
 
         public int Id { get; set; }

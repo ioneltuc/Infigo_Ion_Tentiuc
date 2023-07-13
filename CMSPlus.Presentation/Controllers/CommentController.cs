@@ -19,14 +19,6 @@ namespace CMSPlus.Presentation.Controllers
             _mapper = mapper;
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> Index(int id)
-        //{
-        //    var commentsByTopicId = await _commentService.GetAllByTopicId(id);
-        //    var commentsToDisplay = _mapper.Map<IEnumerable<CommentEntity>, IEnumerable<CommentModel>>(commentsByTopicId);
-        //    return View(commentsToDisplay);
-        //}
-
         [HttpPost]
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteById(int id)

@@ -10,11 +10,5 @@ namespace CMSPlus.Domain.Repositories
         public CommentRepository(ApplicationDbContext context) : base(context)
         {
         }
-
-        public async Task<IEnumerable<CommentEntity>> GetAllByTopicId(int id)
-        {
-            var result = await _dbSet.Where(comment => comment.TopicId == id).ToListAsync();
-            return result;
-        }
     }
 }

@@ -22,10 +22,5 @@ namespace CMSPlus.Services.Services
         {
             await _repository.Delete(id);
         }
-
-        public async Task<IEnumerable<CommentEntity>> GetAllByTopicId(int id)
-        {
-            return await _repository.GetAllByTopicId(id);
-        }
     }
 }
