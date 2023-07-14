@@ -15,19 +15,22 @@
         <p class="col-12 text-black-50 text-end">System name: @Model.SystemName</p>
     </div>
 
-    <div class="col-6 text-end">
-        <a class="btn btn-primary text-center" asp-controller="Comment" asp-action="Create" asp-route-topicId="@Model.Id">Add comment</a>
+    <div class="col-12 text-end m-2">
+        <a class="btn btn-primary" asp-controller="Comment" asp-action="Create" asp-route-topicId="@Model.Id">Add comment</a>
     </div>
 
-    @foreach(var comment in Model.Comments)
-    {
-        <div>@comment.FullName</div>
-        <div>@comment.Body</div>
-        using (Html.BeginForm("Delete", "Comment", new { id = comment.Id }, FormMethod.Post))
+    <ul class="list-group">
+        @foreach(var comment in Model.Comments)
         {
-            <div class="col-6 text-start">
-                <button type="submit" class="btn btn-primary">Delete</button>
-            </div>
+            <li class="list-group-item">
+                <p class="text-black-50">Created: @comment.CreatedOnUtc</p>
+                <p class="text-black"><span class="fw-bold">@comment.FullName: </span>@Html.Raw(comment.Body)</p>
+
+                @using (Html.BeginForm("Delete", "Comment", new { id = comment.Id }, FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                }
+            </li>
         }
-    }
+    </ul>
 </div>
